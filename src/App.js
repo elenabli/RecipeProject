@@ -1,18 +1,19 @@
 import React from "react";
 import Footer from './components/Footer';
 import Header from "./components/Header";
-import NavBar from "./components/NavBar";
 import "./App.css";
+import Hero from "./components/Hero";
 
 function App() {
   return (
-    <div>
+    
       <div className="screen">
-        {/* <NavBar /> */}
+  
         <Header />
+        <Hero />
         <Footer />
       </div>
-    </div>
+   
   );
 }
 
