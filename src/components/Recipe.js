@@ -2,9 +2,13 @@ import React from 'react'
 
 const Recipe = ({name, ingredients}) => {
   return (
-    <div>
+    <div className='recipe'>
         <h3>{name}</h3>
-        <p>{ingredients}</p>
+        <ul className='ingredients-list'>
+            {ingredients.map((ingredient, index) => (
+                <li key={index}>{ingredient}</li>
+            ))}
+        </ul>
     </div>
   )
 }
