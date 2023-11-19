@@ -3,7 +3,6 @@ import Footer from './components/Footer';
 import Header from "./components/Header";
 import "./App.css";
 import Hero from "./components/Hero";
-import Recipes from "./components/Recipes";
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
   
         <Header />
         <Hero />
-        <Recipes />
         <Footer />
       </div>
    
