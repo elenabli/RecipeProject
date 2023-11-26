@@ -1,4 +1,4 @@
-const recipes = require("../models/recipesMongoose");
+const recipes = require("../models/recipesModel");
 
 
 const createRecipe = async (req, res) => {
