@@ -1,9 +1,24 @@
-import { useState } from "react";
-import { recipes } from "../data.js";
+import { useState, useEffect } from "react";
 import Recipe from "./Recipe";
 
 const Hero = () => {
   const [selectedRecipes, setSelectedRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+
+  const getRecipes = async () => {
+    try {
+      const response = await fetch("http://localhost:3100/api/recipes");
+      const jsonData = await response.json();
+      setRecipes(jsonData);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getRecipes();
+  }, []);
+
 
   const getRandomRecipes = () => {
     const randomRecipes = new Set();
@@ -29,7 +44,7 @@ const Hero = () => {
       </div>
       <div className="recipe-container">
         {selectedRecipes.map((recipe) => (
-          <Recipe key={recipe.id} {...recipe} />
+          <Recipe key={recipe._id} {...recipe} />
         ))}
       </div>
     </section>
