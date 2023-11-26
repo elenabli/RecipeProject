@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .header-logo {
@@ -38,7 +37,8 @@
   display: flex;
   height: 100vh;
   justify-content: center;
-  /* align-items: center; */
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero::before {
@@ -48,7 +48,7 @@
   opacity: 0.5;
   top: 60px;
   left: 0;
-  bottom: 60px;
+  bottom: 0;
   right: 0;
   position: absolute;
   z-index: -1;   
@@ -75,16 +75,13 @@
   font-size: 20px;
 }
 
-.hero-banner a {
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 .btn-primary {
   padding: 0.9rem 1.6rem;
   font-size: 1.25rem;
   background: #fff;
   color: #F2B06A;
+  text-transform: uppercase;
+  border: 2px solid #fff;
   
 }
 .btn-primary:hover {
@@ -93,11 +90,48 @@
   border-color: #fff;
 }
 
+.recipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 200px;
+  margin: 40px 10px;
+  padding: 10px;
+  border: 1px solid #fff;
+  /* box-shadow: 0 0 5px rgba(0,0,0,0.5); */
+  background-color: #fff;
+}
+
+.recipe:hover {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.recipe h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 5px;
+}
+
 .footer {
   display: flex;
-  position: fixed;
+  /* position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: 0; */
   width: 100%;
   justify-content: space-between;
   align-items: center;
