@@ -1,7 +1,7 @@
 import NavBar from "./NavBar";
 import logo from "../images/logo.png";
 
-function Header() {
+const Header  = () => {
 
     return <div>
         <div className="header">
