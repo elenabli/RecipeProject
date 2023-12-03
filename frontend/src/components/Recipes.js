@@ -31,11 +31,14 @@ const Recipes = () => {
             ))}
           </div>
           <h2>Shopping list</h2>
-          <div>
-            <ul>
+          <div className="shoppinglist-container">
+            <ul className="shoppinglist">
               {shoppingListArray.map((ingredient, index) => (
                 <li key={index}>
-                  {ingredient.name} - {ingredient.quantity} {ingredient.unit}
+                  <input type="checkbox" id={`ingredient${index}`} />
+                  <label htmlFor={`ingredient${index}`}>
+                    {ingredient.name} - {ingredient.quantity} {ingredient.unit}
+                  </label>
                 </li>
               ))}
             </ul>
