@@ -4,9 +4,21 @@ import Recipe from "./Recipe";
 
 const Recipes = () => {
   const { selectedRecipes } = useContext(RecipeContext);
+
   const shoppingList = selectedRecipes
-    ? selectedRecipes.flatMap((recipe) => recipe.ingredients)
-    : [];
+    ? selectedRecipes
+        .flatMap((recipe) => recipe.ingredients)
+        .reduce((acc, ingredient) => {
+          if (!acc[ingredient.name]) {
+            acc[ingredient.name] = { ...ingredient };
+          } else {
+            acc[ingredient.name].quantity += ingredient.quantity;
+          }
+          return acc;
+        }, {})
+    : {};
+
+  const shoppingListArray = Object.values(shoppingList);
 
   return (
     <div>
@@ -14,18 +26,18 @@ const Recipes = () => {
         <>
           <h2>Recipes</h2>
           <div className="recipe-container">
-            {selectedRecipes &&
-              selectedRecipes.map((recipe) => (
-                <Recipe key={recipe._id} {...recipe} />
-              ))}
+            {selectedRecipes.map((recipe) => (
+              <Recipe key={recipe._id} {...recipe} />
+            ))}
           </div>
           <h2>Shopping list</h2>
           <div>
             <ul>
-              {selectedRecipes &&
-                shoppingList.map((ingredient, index) => (
-                  <li key={index}>{ingredient.name}</li>
-                ))}
+              {shoppingListArray.map((ingredient, index) => (
+                <li key={index}>
+                  {ingredient.name} - {ingredient.quantity} {ingredient.unit}
+                </li>
+              ))}
             </ul>
           </div>
         </>
