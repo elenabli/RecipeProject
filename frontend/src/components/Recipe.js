@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Recipe = ({name, ingredients}) => {
   return (
@@ -6,7 +5,9 @@ const Recipe = ({name, ingredients}) => {
         <h3>{name}</h3>
         <ul className='ingredients-list'>
             {ingredients.map((ingredient, index) => (
-                <li key={index}>{ingredient}</li>
+                <li
+                key={index}
+              >{`${ingredient.quantity} ${ingredient.unit} ${ingredient.name}`}</li>
             ))}
         </ul>
     </div>
