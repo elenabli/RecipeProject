@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 export const RecipeContext = createContext();
 
 export const RecipeProvider = ({ children }) => {
-    const [selectedRecipes, setSelectedRecipes] = useState([]);
+    const [selectedRecipes, setSelectedRecipes] = useState('');
   const [recipes, setRecipes] = useState([]);
 
   const getRecipes = async () => {
